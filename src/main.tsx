@@ -6,13 +6,15 @@ import './index.css'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 
 // pages
-import History from './pages/history'
-import Items from './pages/items'
-import Stats from './pages/stats'
+import History from './pages/History'
+import Items from './pages/Items'
+import Stats from './pages/Stats'
+import Rootlayout from './layout/Rootlayout'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
+    <Route element={<Rootlayout />}>
+      {/* Home page */}
       <Route index element={<App />} />
       <Route path="history" element={<History />} />
       <Route path="items" element={<Items />} />

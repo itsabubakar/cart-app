@@ -1,8 +1,15 @@
+import Item from "./components/Item"
+
 const App = () => {
   return (
-    <div className="bg-blue-400">
-      Hello world
-    </div>
+    <main className="flex justify-center">
+      <div className="container mt-5 gap-5 grid grid-cols-4">
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+      </div>
+    </main>
   )
 }
 
