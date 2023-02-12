@@ -1,13 +1,16 @@
+import { useState } from 'react'
 import { Outlet } from "react-router-dom"
 import Sidebar from "../components/Sidebar"
+import Cart from "../components/Cart"
 
 const Rootlayout = () => {
+    const [toggle, setToggle] = useState(true)
     return (
-        <main className="relative bg-blue-400 h-screen">
-            <Sidebar />
-            <div className="ml-[120px]">
-                <Outlet />
-            </div>
+        <main className="overflow-hidden flex relative bg-[#FAFAFE] h-screen">
+            <Sidebar toggle={toggle} setToggle={setToggle} />
+            <Outlet />
+
+            <Cart toggle={toggle} />
         </main>
     )
 }

@@ -1,6 +1,7 @@
--[] Add transitions between pages using formfik
+-[] Add transitions between pages using framer motion
 -[] Add transitions when hovering over links
 -[] Build cart form
--[] Add transition to show or hide cart form on modal, should be fixed on dsktop
+-[x] Add transition to show or hide cart form on modal, should be fixed on dsktop
 -[] set up redux to manage global state
 -[] set up db to store items there
+-[] Built items page

@@ -5,9 +5,14 @@ import { AiOutlineBarChart } from 'react-icons/ai'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { Link, NavLink } from "react-router-dom"
 
-const Sidebar = () => {
+const Sidebar = ({ toggle, setToggle }: { toggle: boolean, setToggle: React.Dispatch<React.SetStateAction<boolean>> }) => {
+
+    const handleToggle = () => {
+        setToggle(!toggle)
+    }
+
     return (
-        <div className="bg-white w-[90px] absolute h-screen bg-blue py-10 flex flex-col justify-between">
+        <div className="bg-white w-[70px] py-10 flex flex-col justify-between">
             <div className="flex justify-center">
                 <Logo />
             </div>
@@ -37,7 +42,8 @@ const Sidebar = () => {
                 </NavLink>
             </div>
             <div className="flex justify-center">
-                <button className="bg-[#F9A109] pl-2 pr-2.5 py-2 rounded-full"><AiOutlineShoppingCart color="#fff" size={23} /></button>
+                <button onClick={handleToggle} className="bg-[#F9A109] pl-2 pr-2.5 py-2 rounded-full hover:bg-[#454545]"><AiOutlineShoppingCart color="#fff" size={23} /></button>
+                <small className="px-1.5 rounded -ml-3 h-fit bg-red-500 text-white">3</small>
             </div>
         </div>
     )

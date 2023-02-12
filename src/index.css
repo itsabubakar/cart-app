@@ -25,7 +25,7 @@ body {
 }
 
 .thought-box{
-    background-color: black;
+    background-color: #454545;
     border-radius: 5px;
     padding: 2px 14px;
     font-size: 14px;
@@ -40,5 +40,5 @@ body {
     right: 88%;
     border-width: 10px 10px 0 0;
     border-style: solid;
-    border-color: black transparent;
+    border-color: #454545 transparent;
 }
