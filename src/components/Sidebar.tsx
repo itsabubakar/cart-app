@@ -18,7 +18,7 @@ const Sidebar = ({ toggle, setToggle }: { toggle: boolean, setToggle: React.Disp
             </div>
             <div className="flex flex-col gap-12">
                 {/* Items link */}
-                <NavLink to="items" className="flex relative items-center  justify-center">
+                <NavLink to="/" className="flex relative items-center  justify-center">
                     <div className="hidden-link"><TfiMenuAlt size={20} /></div>
                     <div className="absolute left-20 hidden-link-item">
                         <p className="thought-box">Items</p>
@@ -29,7 +29,7 @@ const Sidebar = ({ toggle, setToggle }: { toggle: boolean, setToggle: React.Disp
                 <NavLink to="history" className="flex relative items-center  justify-center">
                     <div className="hidden-link"><VscHistory size={23} /></div>
                     <div className="absolute left-20 hidden-link-item">
-                        <p className="thought-box">Items</p>
+                        <p className="thought-box">History</p>
                     </div>
                 </NavLink>
 
@@ -37,7 +37,7 @@ const Sidebar = ({ toggle, setToggle }: { toggle: boolean, setToggle: React.Disp
                 <NavLink to="stats" className="flex relative items-center  justify-center">
                     <div className="hidden-link"><AiOutlineBarChart size={23} /></div>
                     <div className="absolute left-20 hidden-link-item">
-                        <p className="thought-box">Items</p>
+                        <p className="thought-box">Charts</p>
                     </div>
                 </NavLink>
             </div>

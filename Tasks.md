@@ -1,4 +1,7 @@
--[] Add transitions between pages using framer motion
+-[x] Add transitions between pages using framer motion
+-[] set up reducer store and reducers to handle adding items and removing
+-[] build add item component
+-[] fine tune transitions between pages using framer motion
 -[] Add transitions when hovering over links
 -[] Build cart form
 -[x] Add transition to show or hide cart form on modal, should be fixed on dsktop

@@ -9,7 +9,7 @@ body {
 .active:after {
     content: "";
     position: absolute;
-    right: 94%;
+    right: 95%;
     border-color: #F9A109;
     border-radius: 3px 5px 5px;
     border-width: 20px;

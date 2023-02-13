@@ -7,9 +7,9 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 
 // pages
 import History from './pages/History'
-import Items from './pages/Items'
 import Stats from './pages/Stats'
 import Rootlayout from './layout/Rootlayout'
+import { AnimatePresence } from 'framer-motion'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,7 +17,6 @@ const router = createBrowserRouter(
       {/* Home page */}
       <Route index element={<App />} />
       <Route path="history" element={<History />} />
-      <Route path="items" element={<Items />} />
       <Route path="stats" element={<Stats />} />
     </Route>
   )
@@ -25,6 +24,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AnimatePresence>
+      <RouterProvider router={router} />
+    </AnimatePresence>
   </React.StrictMode>
 )
