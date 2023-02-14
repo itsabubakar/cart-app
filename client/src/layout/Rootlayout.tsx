@@ -9,7 +9,6 @@ const Rootlayout = () => {
         <main className="overflow-hidden flex relative bg-[#FAFAFE] h-screen">
             <Sidebar toggle={toggle} setToggle={setToggle} />
             <Outlet />
-
             <Cart toggle={toggle} />
         </main>
     )

@@ -1,6 +1,6 @@
 const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: React.Dispatch<React.SetStateAction<boolean>> }) => {
     return (
-        <div className="px-6 py-8 w-[300px] sm:w-[320px] h-full">
+        <div className="px-6 py-8 w-[300px] sm:w-[320px] h-full bg-white">
             <h2 className=" text-xl text-gray-800 font-semibold ">Add a new item</h2>
             <form>
 
@@ -9,7 +9,7 @@ const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: Rea
                     <label className="my-2 text-gray-800 font-medium" htmlFor="name">Name</label>
                     <input
                         placeholder="Enter a name"
-                        className="border-[#BDBDBD] text-sm border-2 rounded-lg px-2 py-2"
+                        className="border-[#BDBDBD] text-sm border-2 rounded-lg px-2 py-2 outline-none focus:border-[#F9A109]"
                         type="text" />
                 </div>
                 {/* end of name */}
@@ -19,7 +19,7 @@ const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: Rea
                     <label className="my-2 text-gray-800 font-medium" htmlFor="name">Note (optional)</label>
                     <textarea
                         placeholder="Enter a note"
-                        className="resize-none text-sm border-2 rounded-lg px-2 py-2 border-[#BDBDBD]"
+                        className="outline-none resize-none text-sm border-2 rounded-lg px-2 py-2 border-[#BDBDBD] focus:border-[#F9A109]"
                         name="note" id="" cols={30} rows={4}></textarea>
                 </div>
                 {/* end of note */}
@@ -29,7 +29,7 @@ const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: Rea
                     <label className="my-2 text-gray-800 font-medium" htmlFor="image">Image (optional)</label>
                     <input
                         placeholder="Enter a url"
-                        className="text-sm border-2 border-[#BDBDBD] rounded-lg px-2 py-2"
+                        className="outline-none text-sm border-2 border-[#BDBDBD] rounded-lg px-2 py-2 focus:border-[#F9A109]"
                         type="text" />
                 </div>
                 {/* end of image */}
@@ -39,7 +39,7 @@ const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: Rea
                     <label className="my-2 text-gray-800 font-medium" htmlFor="category">Category</label>
                     <select
                         name='category'
-                        className='border-2 border-[#BDBDBD] p-2 rounded-md bg-white'>
+                        className='focus:border-[#F9A109] border-2 border-[#BDBDBD] p-2 rounded-md bg-white'>
                         <option>Fruits</option>
                         <option>Meat and Fish</option>
                         <option>Beverages</option>

@@ -9,7 +9,7 @@ const Cart = ({ toggle }: { toggle: boolean }) => {
     const [newItem, setNewItem] = useState(false)
     return (
         <div className={`flex flex-col h-full ml-auto ease-in-out duration-200 absolute ${toggle ? 'right-0' : 'absolute -right-[100%]'}`}>
-            {newItem ? <AddNewItem setNewItem={setNewItem} newItem={newItem} /> : <div className="overflow-y-scroll">
+            {newItem ? <AddNewItem setNewItem={setNewItem} newItem={newItem} /> : <div className="overflow-y-hidden">
                 <div className={`bg-[#FFF0DE] h-[86%] px-8 py-8 w-[300px] sm:w-[320px] overflow-y-scroll`}>
                     <div>
                         {/* bottle and add items section */}
@@ -34,7 +34,9 @@ const Cart = ({ toggle }: { toggle: boolean }) => {
                     {/*end of No  Items section */}
 
                 </div>
-                <AddItem />
+                <div className="h-full bg-white pt-4">
+                    <AddItem />
+                </div>
             </div>}
 
         </div>

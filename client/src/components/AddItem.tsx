@@ -1,6 +1,6 @@
 const AddItem = () => {
     return (
-        <div className="ml-auto mr-auto rounded-md mt-3.5 pl-2 w-fit border-2 border-[#F9A109]">
+        <div className="ml-auto mr-auto rounded-md pl-2 w-fit border-2 border-[#F9A109]">
             <input
                 placeholder="Enter an item"
                 className="h-full outline-none"

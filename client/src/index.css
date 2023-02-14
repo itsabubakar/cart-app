@@ -42,3 +42,14 @@ body {
     border-style: solid;
     border-color: #454545 transparent;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll-bar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scroll-bar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
