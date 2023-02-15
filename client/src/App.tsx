@@ -8,7 +8,7 @@ const App = () => {
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="ml-20 overflow-x-auto scroll-bar">
+      className="overflow-x-auto scroll-bar">
       <h1 className="mt-5 text-2xl font-semibold text-gray-800"><span className="text-[#F9A109]">Shoppingify</span> allows you take your shopping list wherever you go</h1>
 
       <div className="py-10 w-full">

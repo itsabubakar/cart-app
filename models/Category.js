@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const listSchema = new mongoose.Schema({
-    item: {
+    category: {
         type: String,
         required: true
     }

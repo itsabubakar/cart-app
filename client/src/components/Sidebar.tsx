@@ -12,7 +12,7 @@ const Sidebar = ({ toggle, setToggle }: { toggle: boolean, setToggle: React.Disp
     }
 
     return (
-        <div className="bg-white w-[70px] py-10 flex flex-col justify-between">
+        <div className="bg-white w-[70px] py-10 flex flex-col justify-between mr-20">
             <div className="flex justify-center">
                 <Logo />
             </div>
