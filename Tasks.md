@@ -7,7 +7,7 @@
 - [] set up reducer store and reducers to handle adding items and removing
 - [] fine tune transitions between pages using framer motion
 - [] Add transitions when hovering over links
-- [] Build cart form
+- [] Build cart from to do list
 - [] set up redux to manage global state
 - [] Install axios, set up base url with axios
 - [] Read on how to set up a relation between different douments so you can create a category document and link it to paticular items
