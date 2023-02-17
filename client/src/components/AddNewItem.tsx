@@ -1,7 +1,11 @@
 import { useFormik } from "formik"
+import { useDispatch, useSelector } from "react-redux"
+import { addNewItem } from '../features/itemSlice'
 import * as Yup from 'yup'
 
+
 const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: React.Dispatch<React.SetStateAction<boolean>> }) => {
+    const dispatch = useDispatch()
 
     // formik logic
     const formik = useFormik({
@@ -18,11 +22,19 @@ const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: Rea
         }),
         // submit form
         onSubmit: (values, { resetForm }) => {
-            Object.values(values).forEach(item => {
-                if (item) {
-                    console.log(item.toLowerCase())
-                }
-            })
+            // console.log(values)
+            try {
+                dispatch(addNewItem(values)).unwrap()
+            } catch (error) {
+                console.log(error)
+            }
+
+
+            // Object.values(values).forEach(item => {
+            //     if (item) {
+            //         console.log(item.toLowerCase())
+            //     }
+            // })
             // resetForm({
             //     values: {
             //         name: '',
@@ -33,7 +45,6 @@ const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: Rea
             // })
         },
     })
-    console.log(formik.errors)
 
 
     return (

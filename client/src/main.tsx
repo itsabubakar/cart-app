@@ -11,6 +11,10 @@ import Stats from './pages/Stats'
 import Rootlayout from './layout/Rootlayout'
 import { AnimatePresence } from 'framer-motion'
 
+import { store } from './app/store'
+import { Provider } from 'react-redux'
+
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Rootlayout />}>
@@ -24,8 +28,10 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <AnimatePresence>
-      <RouterProvider router={router} />
-    </AnimatePresence>
+    <Provider store={store}>
+      <AnimatePresence>
+        <RouterProvider router={router} />
+      </AnimatePresence>
+    </Provider>
   </React.StrictMode>
 )

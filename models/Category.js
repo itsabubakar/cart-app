@@ -1,12 +1,11 @@
 const mongoose = require('mongoose')
 
-const listSchema = new mongoose.Schema({
+const categorySchema = new mongoose.Schema({
     category: {
         type: String,
-        required: true
+        // required: true
     }
-},
-    { timestamps: true }
+}
 )
 
-module.exports = mongoose.model('List', listSchema)
+module.exports = mongoose.model('Category', categorySchema)

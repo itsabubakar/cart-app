@@ -4,7 +4,8 @@
 - [x] build add item component
 - [x] Built items page
 - [x] Set up routes and controllers for categories and items
-- [] set up reducer store and reducers to handle adding items and removing
+- [x] set up reducer store and reducers to handle adding items and removing
+- [x] set up reducer store and reducers to handle adding categories and removing
 - [] fine tune transitions between pages using framer motion
 - [] Add transitions when hovering over links
 - [] Build cart from to do list

@@ -1,11 +1,14 @@
 const mongoose = require('mongoose')
 
 const itemSchema = new mongoose.Schema({
-    item: {
+    name: {
         type: String,
         required: true
     },
-    itemId: {
+    note: {
+        type: String,
+    },
+    category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
     }
