@@ -5,9 +5,17 @@ const Item = require('../models/Item')
 async function handlePost(req, res) {
     console.log('api end point hit')
     const { name, category, notes } = req.body
-    console.log(name, category)
+
+
+    // Check for duplicate item
+    const duplicate = await Item.findOne({ name }).lean().exec()
+
+    if (duplicate) {
+        console.log(duplicate)
+        return res.status(400).json('Item already exists')
+    }
+
     const item = await Item.create({ name, notes, category })
-    console.log(item)
     if (item) { // Created 
         return res.status(201).json(item)
     } else {

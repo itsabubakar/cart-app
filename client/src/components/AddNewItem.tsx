@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { addNewItem } from '../features/itemSlice'
 import * as Yup from 'yup'
 
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css'
+
 
 const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const dispatch = useDispatch()
@@ -21,35 +25,62 @@ const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: Rea
             category: Yup.string().required('Category is required'),
         }),
         // submit form
-        onSubmit: (values, { resetForm }) => {
+        onSubmit: async (values, { resetForm }) => {
             // console.log(values)
             try {
-                dispatch(addNewItem(values)).unwrap()
-            } catch (error) {
-                console.log(error)
-            }
+                const response = await dispatch(addNewItem(values)).unwrap()
+                console.log(response)
 
+            } catch (error: any) {
+                console.log(error.message);
+                toast.error(error.message, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                })
+            }
 
             // Object.values(values).forEach(item => {
             //     if (item) {
             //         console.log(item.toLowerCase())
             //     }
             // })
-            // resetForm({
-            //     values: {
-            //         name: '',
-            //         note: '',
-            //         url: '',
-            //         category: ''
-            //     }
-            // })
+            resetForm({
+                values: {
+                    name: '',
+                    note: '',
+                    url: '',
+                    category: ''
+                }
+            })
         },
     })
+
 
 
     return (
         <div className="px-6 py-8 w-[300px] sm:w-[320px] h-full bg-white">
             <h2 className=" text-xl text-gray-800 font-semibold ">Add a new item</h2>
+            <div className="w-[250px]">
+                <ToastContainer
+                    style={{ width: "320px", marginLeft: "10px", marginTop: "10px" }}
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
+            </div>
             <form onSubmit={formik.handleSubmit}>
 
                 {/* name */}

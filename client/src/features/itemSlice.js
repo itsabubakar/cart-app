@@ -18,10 +18,13 @@ export const fetchItems = createAsyncThunk('items/fetchItems', async () => {
 export const addNewItem = createAsyncThunk('items/addNewItem', async (item) => {
     // console.log(item)
     // console.log('Slice connected')
-    const response = await axios.post(ITEMS_URL, item)
-    console.log(response.data)
+    try {
+        const response = await axios.post(ITEMS_URL, item)
+        return response.data
+    } catch (error) {
+        throw Error(error.response.data)
+    }
 
-    return response.data
 })
 export const updateItem = createAsyncThunk('items/updateItem', async (item) => {
     const { id } = item

@@ -9,8 +9,7 @@ const itemSchema = new mongoose.Schema({
         type: String,
     },
     category: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
+        type: String,
     }
 })
 
