@@ -1,5 +1,5 @@
 import { useFormik } from "formik"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { addNewItem } from '../features/itemSlice'
 import * as Yup from 'yup'
 

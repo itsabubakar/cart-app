@@ -6,6 +6,9 @@
 - [x] Set up routes and controllers for categories and items
 - [x] set up reducer store and reducers to handle adding items and removing
 - [x] set up reducer store and reducers to handle adding categories and removing
+- [] fectch all items, create an array of categories and fecth the data again querying using the data from the categoris
+- [] Map the data gotten
+- [x] set up reducer store and reducers to handle adding categories and removing
 - [] fine tune transitions between pages using framer motion
 - [] Add transitions when hovering over links
 - [] Build cart from to do list

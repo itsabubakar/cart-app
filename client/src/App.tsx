@@ -1,8 +1,30 @@
 import Item from "./components/Item"
+import { useEffect, useState } from 'react'
 import { motion as m } from 'framer-motion'
+import { useDispatch } from "react-redux"
+import { fetchItems } from "./features/itemSlice"
 
 
 const App = () => {
+  const dispatch = useDispatch()
+  const [categories, setCategories] = useState([])
+  const [data, setData] = useState([])
+
+
+  const fetchData = async () => {
+    try {
+      const response = await dispatch(fetchItems())
+      console.log(response.payload)
+      setData(response.payload)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   return (
     <m.main
       initial={{ opacity: 0 }}

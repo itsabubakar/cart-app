@@ -9,24 +9,27 @@ const initialState = {
     error: null
 }
 
-export const fetchItems = createAsyncThunk('items/fetchItems', async () => {
-    const response = await axios.get(ITEMS_URL)
-    console.log(response.data)
-    return response.data
+export const fetchItems: any = createAsyncThunk('items/fetchItems', async () => {
+    try {
+        const response = await axios.get(ITEMS_URL)
+        return response.data
+    } catch (error: any) {
+        throw Error(error.response.data)
+    }
 })
 
-export const addNewItem = createAsyncThunk('items/addNewItem', async (item) => {
+export const addNewItem: any = createAsyncThunk('items/addNewItem', async (item) => {
     // console.log(item)
     // console.log('Slice connected')
     try {
         const response = await axios.post(ITEMS_URL, item)
         return response.data
-    } catch (error) {
+    } catch (error: any) {
         throw Error(error.response.data)
     }
 
 })
-export const updateItem = createAsyncThunk('items/updateItem', async (item) => {
+export const updateItem = createAsyncThunk('items/updateItem', async (item: { id: string }) => {
     const { id } = item
     try {
         const response = await axios.put(`${ITEMS_URL}/${id}`, item)
@@ -38,13 +41,13 @@ export const updateItem = createAsyncThunk('items/updateItem', async (item) => {
     }
 })
 
-export const deleteItem = createAsyncThunk('items/deleteItem', async (item) => {
+export const deleteItem = createAsyncThunk('items/deleteItem', async (item: { id: string }) => {
     const { id } = item;
     try {
         const response = await axios.delete(`${ITEMS_URL}/${id}`)
         if (response?.status === 200) return item;
         return `${response?.status}: ${response?.statusText}`;
-    } catch (err) {
+    } catch (err: any) {
         return err.message;
     }
 })
@@ -52,6 +55,7 @@ export const deleteItem = createAsyncThunk('items/deleteItem', async (item) => {
 const itemSlice = createSlice({
     name: 'items',
     initialState,
+    reducers: {},
     extraReducers(builder) {
         builder
             .addCase(fetchItems.pending, (state, action) => {
@@ -62,7 +66,7 @@ const itemSlice = createSlice({
                 state.status = 'succeeded'
             })
 
-            .addCase(fetchItems.rejected, (state, action) => {
+            .addCase(fetchItems.rejected, (state: any, action) => {
                 state.status = 'failed'
                 state.error = action.error.message
             })
@@ -70,7 +74,7 @@ const itemSlice = createSlice({
             .addCase(addNewItem.fulfilled, (state, action) => {
                 state.status = 'succeeded'
             })
-            .addCase(updateItem.fulfilled, (state, action) => {
+            .addCase(updateItem.fulfilled, (state: any, action) => {
                 if (!action.payload?.id) {
                     console.log('Update could not complete')
                     console.log(action.payload)
@@ -78,27 +82,26 @@ const itemSlice = createSlice({
                 }
                 const { id } = action.payload;
                 action.payload.date = new Date().toISOString();
-                const items = state.items.filter(item => item.id !== id);
+                const items = state.items.filter((item: { id: any }) => item.id !== id);
                 state.items = [...items, action.payload];
             })
-            .addCase(deleteItem.fulfilled, (state, action) => {
+            .addCase(deleteItem.fulfilled, (state: any, action) => {
                 if (!action.payload?.id) {
                     console.log('Delete could not complete')
                     console.log(action.payload)
                     return;
                 }
                 const { id } = action.payload;
-                const items = state.items.filter(item => item.id !== id);
+                const items = state.items.filter((item: { id: any }) => item.id !== id);
                 state.items = items;
             })
     }
 })
 
 
-export const selectAllItems = (state) => state.items.items;
-export const getItemStatus = (state) => state.items.status;
-export const getItemError = (state) => state.items.error;
+export const selectAllItems = (state: { items: { items: any } }) => state.items.items;
+export const getItemStatus = (state: { items: { status: any } }) => state.items.status;
+export const getItemError = (state: { items: { error: any } }) => state.items.error;
 
-// export const { postAdded, reactionAdded } = postsSlice.actions
 
 export default itemSlice.reducer

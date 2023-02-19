@@ -23,6 +23,20 @@ async function handlePost(req, res) {
     }
 }
 
+// get  item posts
+
+async function getItem(req, res) {
+    console.log('get  end point hit')
+
+    const items = await Item.find().lean().exec()
+
+    if (items) { // Created 
+        return res.status(201).json(items)
+    } else {
+        return res.status(400).json({ message: 'error, unable to fetch items' })
+    }
+}
+
 module.exports = {
-    handlePost
+    handlePost, getItem
 }
