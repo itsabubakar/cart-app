@@ -5,6 +5,7 @@ const Item = require('../models/Item')
 async function handlePost(req, res) {
     console.log('api end point hit')
     const { name, category, notes } = req.body
+    console.log(name, category);
 
 
     // Check for duplicate item
@@ -23,10 +24,9 @@ async function handlePost(req, res) {
     }
 }
 
-// get  item posts
+// get  categories posts
 
 async function getItem(req, res) {
-    console.log('get  end point hit')
 
     const items = await Item.find().lean().exec()
 
@@ -37,6 +37,25 @@ async function getItem(req, res) {
     }
 }
 
+// get items in categories
+
+async function getCategoryItems(req, res) {
+    console.log('category end point hit')
+    const { data } = req.body
+
+    console.log(data)
+
+    const item = await Item.find({ category: data }).lean().exec()
+    console.log(item)
+
+    if (item) { // exists 
+
+        return res.status(201).json(item)
+    } else {
+        return res.status(400).json({ message: 'error, unable to fetch item' })
+    }
+}
+
 module.exports = {
-    handlePost, getItem
+    handlePost, getItem, getCategoryItems
 }

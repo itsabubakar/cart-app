@@ -9,9 +9,20 @@ const initialState = {
     error: null
 }
 
+// fetches the category
 export const fetchItems: any = createAsyncThunk('items/fetchItems', async () => {
     try {
         const response = await axios.get(ITEMS_URL)
+        return response.data
+    } catch (error: any) {
+        throw Error(error.response.data)
+    }
+})
+
+// fetches item for that category
+export const fetchItem: any = createAsyncThunk('items/fetchItem', async (category) => {
+    try {
+        const response = await axios.post(`${ITEMS_URL}/items`, category)
         return response.data
     } catch (error: any) {
         throw Error(error.response.data)

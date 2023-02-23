@@ -26,7 +26,7 @@ const AddNewItem = ({ newItem, setNewItem }: { newItem: boolean, setNewItem: Rea
         }),
         // submit form
         onSubmit: async (values, { resetForm }) => {
-            // console.log(values)
+            // console.log(values) 
             try {
                 const response = await dispatch(addNewItem(values)).unwrap()
                 console.log(response)
